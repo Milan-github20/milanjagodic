@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Milan Jagodić — portfolio
 
-## Getting Started
+Personal site for **Milan Jagodić**, full-stack developer. English by default, Serbian at `/sr`. Live products: [Tennis Match](https://tennismatch.ba) and [Preferito](https://preferito.vercel.app).
 
-First, run the development server:
+This repo is the portfolio only. Application source for Tennis Match and Preferito stays private.
+
+## Stack
+
+Next.js (App Router) · TypeScript · Tailwind CSS · Motion · Vercel
+
+## Local setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). `/` redirects to `/en`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment
 
-## Learn More
+Copy into `.env.local` (do not commit secrets):
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | No | Canonical site URL. Defaults to `https://milanjagodic.vercel.app`. |
+| `FORMSPARK_ID` | No | Enables the contact form. Without it, submissions are logged on the server. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Path | Page |
+|---|---|
+| `/en`, `/sr` | Home |
+| `/en/work/tennis-match` | Tennis Match case study |
+| `/en/work/preferito` | Preferito case study |
+| `/en/about` | About |
+| `/en/contact` | Contact |
+| `/en/cv` | CV (print to A4 from `lib/cv.ts`) |
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`/bs` redirects to `/sr`. Command palette: `Ctrl+K` / `Cmd+K`.
