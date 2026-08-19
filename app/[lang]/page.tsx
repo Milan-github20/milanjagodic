@@ -1,11 +1,15 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
-import { LiveProductCard } from "@/components/LiveProductCard";
 import { Reveal } from "@/components/Reveal";
 import { WorkCard } from "@/components/WorkCard";
+import { HeroSection } from "@/components/HeroSection";
+import { ProcessCard } from "@/components/ProcessCard";
+import { StackCard } from "@/components/StackCard";
+import { CtaSection } from "@/components/CtaSection";
+import { Marquee } from "@/components/Marquee";
+import { SectionNumber } from "@/components/SectionNumber";
 import { getDictionary } from "@/lib/dictionaries";
-import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { isLocale, type Locale } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
@@ -16,49 +20,28 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
-      <section className="hero-glow cinematic-grid relative overflow-hidden">
-        <Container className="relative grid items-end gap-16 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-12 lg:py-28">
-          <div>
-            <p className="text-sm font-medium text-accent">{dict.hero.kicker}</p>
-            <h1 className="mt-6 font-display text-[4rem] leading-[0.9] tracking-tight text-ink sm:text-8xl lg:text-[7rem]">
-              <span className="block">Milan</span>
-              <span className="block italic text-accent">Jagodić</span>
-            </h1>
-            <p className="mt-10 max-w-xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
-              {dict.hero.sentence}
-            </p>
-            <p className="mt-4 text-sm text-muted/80">{dict.hero.secondary}</p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href={localePath(locale, "#work")}
-                className="inline-flex h-12 items-center justify-center bg-accent px-7 text-sm font-medium text-canvas transition hover:bg-ink"
-              >
-                {dict.hero.seeWork}
-              </Link>
-              <Link
-                href={localePath(locale, "contact")}
-                className="inline-flex h-12 items-center justify-center border border-line px-7 text-sm font-medium text-ink transition hover:border-accent hover:text-accent"
-              >
-                {dict.hero.getInTouch}
-              </Link>
-            </div>
-          </div>
-          <LiveProductCard
-            title={site.tennisMatch.title}
-            subtitle={dict.work.tennisMatch.subtitle}
-            liveLabel={dict.hero.liveProduct}
-          />
-        </Container>
-      </section>
+      <HeroSection
+        locale={locale}
+        kicker={dict.hero.kicker}
+        sentence={dict.hero.sentence}
+        secondary={dict.hero.secondary}
+        seeWork={dict.hero.seeWork}
+        getInTouch={dict.hero.getInTouch}
+        liveLabel={dict.hero.liveProduct}
+        tennisMatchTitle={site.tennisMatch.title}
+        tennisMatchSubtitle={dict.work.tennisMatch.subtitle}
+      />
 
-      <section id="work" className="scroll-mt-20 border-t border-line">
-        <Container className="flex flex-col gap-12 py-20 sm:py-24">
+      {/* Work */}
+      <section id="work" className="scroll-mt-16 border-t border-line">
+        <Container className="flex flex-col gap-10 py-12 sm:py-16 lg:py-24">
           <Reveal>
-            <h2 className="font-display text-4xl tracking-tight text-ink sm:text-5xl">
+            <SectionNumber number="01" label={dict.work.title} />
+            <h2 className="font-display text-3xl tracking-tight text-ink sm:text-4xl lg:text-5xl">
               {dict.work.title}
             </h2>
           </Reveal>
-          <div className="flex flex-col gap-14">
+          <div className="flex flex-col gap-10 sm:gap-14">
             <Reveal>
               <WorkCard
                 locale={locale}
@@ -94,91 +77,63 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </Container>
       </section>
 
+      {/* Process */}
       <section className="border-t border-line bg-surface">
-        <Container className="flex flex-col gap-12 py-20 sm:py-24">
+        <Container className="flex flex-col gap-10 py-12 sm:py-16 lg:py-24">
           <Reveal>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-accent">
-              {dict.process.kicker}
-            </p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+            <SectionNumber number="02" label={dict.process.kicker} />
+            <h2 className="font-display text-3xl tracking-tight text-ink sm:text-4xl lg:text-5xl">
               {dict.process.title}
             </h2>
           </Reveal>
           <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {dict.process.steps.map((item, index) => (
-              <Reveal key={item} delay={index * 0.06}>
-                <li className="flex h-full flex-col gap-4 rounded-xl border border-line bg-surface-raised p-6">
-                  <span className="font-display text-4xl italic text-accent">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-base leading-7 text-muted">{item}</p>
-                </li>
-              </Reveal>
+              <ProcessCard
+                key={item}
+                number={String(index + 1).padStart(2, "0")}
+                text={item}
+                delay={index * 0.09}
+              />
             ))}
           </ol>
         </Container>
       </section>
 
+      {/* Stack */}
       <section className="border-t border-line">
-        <Container className="flex flex-col gap-12 py-20 sm:py-24">
+        <Container className="flex flex-col gap-10 py-12 sm:py-16 lg:py-24">
           <Reveal>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-accent">
-              {dict.stack.kicker}
-            </p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight text-ink sm:text-5xl">
+            <SectionNumber number="03" label={dict.stack.kicker} />
+            <h2 className="font-display text-3xl tracking-tight text-ink sm:text-4xl lg:text-5xl">
               {dict.stack.title}
             </h2>
             <p className="mt-3 max-w-xl text-muted">{dict.stack.note}</p>
           </Reveal>
           <div className="grid gap-10 lg:grid-cols-2">
-            {(
-              [
-                ["Tennis Match", dict.stack.tennisMatch],
-                ["Preferito", dict.stack.preferito],
-              ] as const
-            ).map(([label, stack]) => (
-              <dl
-                key={label}
-                className="grid gap-4 rounded-2xl border border-line bg-surface p-6"
-              >
-                <dt className="font-display text-2xl text-ink">{label}</dt>
-                {(
-                  Object.entries(dict.stack.groups) as [
-                    keyof typeof dict.stack.groups,
-                    string,
-                  ][]
-                ).map(([key, groupLabel]) => (
-                  <div key={key} className="border-l-2 border-accent pl-4">
-                    <dt className="text-xs uppercase tracking-wider text-muted">
-                      {groupLabel}
-                    </dt>
-                    <dd className="mt-1 text-sm leading-6 text-ink/90">
-                      {stack[key]}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            ))}
+            <StackCard
+              label="Tennis Match"
+              stack={dict.stack.tennisMatch as Record<string, string>}
+              groups={dict.stack.groups as Record<string, string>}
+              side="left"
+            />
+            <StackCard
+              label="Preferito"
+              stack={dict.stack.preferito as Record<string, string>}
+              groups={dict.stack.groups as Record<string, string>}
+              side="right"
+            />
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-line bg-surface">
-        <Container className="flex flex-col gap-6 py-20 sm:py-24">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-accent">
-            {dict.close.location}
-          </p>
-          <p className="max-w-2xl font-display text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
-            {dict.close.availability}
-          </p>
-          <a
-            href={`mailto:${site.email}`}
-            className="w-fit text-xl font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:text-ink sm:text-2xl"
-          >
-            {site.email}
-          </a>
-        </Container>
-      </section>
+      <Marquee />
+
+      {/* CTA */}
+      <CtaSection
+        location={dict.close.location}
+        availability={dict.close.availability}
+        email={site.email}
+      />
     </>
   );
 }
