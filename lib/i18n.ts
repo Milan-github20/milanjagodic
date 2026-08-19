@@ -7,6 +7,8 @@ export function isLocale(value: string): value is Locale {
 }
 
 export function localePath(locale: Locale, path = ""): string {
+  // Hash-only links go to home page with anchor
+  if (path.startsWith("#")) return `/${locale}${path}`;
   const normalized = path.startsWith("/") ? path : path ? `/${path}` : "";
   return `/${locale}${normalized}`;
 }
