@@ -27,7 +27,7 @@ export function Footer({ dict, locale }: { dict: Dictionary; locale: Locale }) {
 
   return (
     <footer className="mt-auto border-t border-line bg-surface print:hidden overflow-hidden">
-      <Container className="flex flex-col gap-4 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-row items-center justify-center gap-8 py-6 text-sm">
         <motion.a
           href={`mailto:${site.email}`}
           className="shrink-0 text-muted transition-colors hover:text-accent"
@@ -39,7 +39,7 @@ export function Footer({ dict, locale }: { dict: Dictionary; locale: Locale }) {
         >
           {site.email}
         </motion.a>
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
+        <div className="flex items-center gap-x-5">
           {links.map((link, i) => (
             <motion.div
               key={link.href}
