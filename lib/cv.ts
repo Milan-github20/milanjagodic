@@ -1,19 +1,6 @@
 import type { Locale } from "./i18n";
 import { site } from "./site";
 
-/**
- * CV — EDITuj OVAJ FAJL.
- *
- * Sve što vidiš na /en/cv i /sr/cv dolazi odavde.
- * Prazan string ("") se na ekranu vidi kao narančasti okvir da znaš šta fali;
- * na Print / PDF se to polje ne štampa.
- *
- * Šta obavezno provjeri:
- * 1. Uloga u Računari d.o.o. (`role`)
- * 2. 2–3 bullet-a šta radiš tamo (`bullets`)
- * 3. Smjer / fakultet na Apeironu (`program`)
- * 4. Telefon, GitHub, LinkedIn — ako želiš da stoje
- */
 export type CvJob = {
   company: string;
   role: string;
@@ -66,7 +53,7 @@ const en: CvContent = {
   linkedin: site.social.linkedin ?? "",
   website: "",
   summary:
-    "I design and ship web products end to end — from the first user problem to a live app with login, data, and real workflows. Currently based in Bosnia and Herzegovina.",
+    "I design and ship web products end to end - from the first user problem to a live app with login, data, and real workflows. Currently based in Bosnia and Herzegovina.",
   experience: [
     {
       company: "Računari d.o.o.",
@@ -143,7 +130,7 @@ const sr: CvContent = {
   linkedin: site.social.linkedin ?? "",
   website: "",
   summary:
-    "Dizajniram i isporučujem web proizvode od prve ideje do aplikacije u produkciji — sa prijavom, bazom i stvarnim tokovima rada. Radim iz Bosne i Hercegovine.",
+    "Dizajniram i isporučujem web proizvode od prve ideje do aplikacije u produkciji - sa prijavom, bazom i stvarnim tokovima rada. Radim iz Bosne i Hercegovine.",
   experience: [
     {
       company: "Računari d.o.o.",
