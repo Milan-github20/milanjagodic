@@ -86,6 +86,32 @@ export const sr = {
     availability:
       "Otvoren za stalni posao i odabrane freelance projekte, rad na daljinu iz BiH — sada",
     location: "Bosna i Hercegovina",
+    availableNow: "Dostupan — odgovorim u roku od 24h",
+    whatIOffer: "Šta nudim",
+    offerItems: [
+      "Full-stack web razvoj",
+      "Dizajn proizvoda i UX",
+      "Od ideje do produkcije",
+      "Udaljeni rad — Bosna i Hercegovina",
+    ],
+    findMe: "Pronađi me",
+    navigate: "Navigacija",
+    heroStats: [
+      { value: "2", label: "Projekta u produkciji" },
+      { value: "4+", label: "Godina kodiranja" },
+      { value: "BiH", label: "Rad na daljinu" },
+    ],
+    heroAvailable: "Dostupan",
+    marqueeItems: [
+      "Full-Stack Developer",
+      "React · Next.js · TypeScript",
+      "Bosna i Hercegovina",
+      "Otvoren za zapošljavanje",
+      "Čist kod. Pravi proizvodi.",
+      "Node.js · PostgreSQL · Supabase",
+      "Fokus na proizvod",
+      "Otvoren za udaljeni rad",
+    ],
   },
   about: {
     kicker: "O meni",
