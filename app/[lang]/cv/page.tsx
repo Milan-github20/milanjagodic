@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CvDocument } from "@/components/CvDocument";
+import { PrintableCv } from "@/components/PrintableCv";
 import { PrintCvButton } from "@/components/PrintCvButton";
 import { getCv } from "@/lib/cv";
 import { getDictionary } from "@/lib/dictionaries";
@@ -23,6 +24,7 @@ export default async function CvPage({ params }: PageProps<"/[lang]/cv">) {
   const cv = getCv(locale);
 
   return (
+    <>
     <div className="hero-glow cinematic-grid relative">
       <div className="mx-auto flex w-full max-w-[210mm] flex-col gap-6 px-4 py-10 sm:px-6 sm:py-14 print:max-w-none print:px-0 print:py-0">
         <div className="print-hide flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -51,5 +53,7 @@ export default async function CvPage({ params }: PageProps<"/[lang]/cv">) {
         />
       </div>
     </div>
+    <PrintableCv cv={cv} />
+    </>
   );
 }
