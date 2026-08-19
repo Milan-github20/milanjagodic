@@ -19,6 +19,8 @@ type HeroSectionProps = {
   getInTouch: string;
   tennisMatchTitle: string;
   tennisMatchSubtitle: string;
+  availableLabel: string;
+  stats: { value: string; label: string }[];
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -56,6 +58,8 @@ export function HeroSection({
   getInTouch,
   tennisMatchTitle,
   tennisMatchSubtitle,
+  availableLabel,
+  stats,
 }: HeroSectionProps) {
   return (
     <section className="hero-glow cinematic-grid relative overflow-hidden">
@@ -87,19 +91,19 @@ export function HeroSection({
               style={{ originX: 0 }}
             />
             <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted leading-tight">{kicker}</p>
-            <motion.span
-              className="flex items-center gap-1.5 text-xs text-muted/70"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
               <motion.span
-                className="h-1.5 w-1.5 rounded-full bg-green-500"
-                animate={{ opacity: [1, 0.3, 1], scale: [1, 1.3, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              Available
-            </motion.span>
+                className="flex items-center gap-1.5 text-xs text-muted/70"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <motion.span
+                  className="h-1.5 w-1.5 rounded-full bg-green-500"
+                  animate={{ opacity: [1, 0.3, 1], scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                {availableLabel}
+              </motion.span>
           </motion.div>
 
           {/* Name */}
@@ -159,11 +163,7 @@ export function HeroSection({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            {[
-              { value: "2", label: "Live Products" },
-              { value: "4+", label: "Years Coding" },
-              { value: "BiH", label: "Remote-ready" },
-            ].map(({ value, label }, i) => (
+            {stats.map(({ value, label }, i) => (
               <motion.div
                 key={label}
                 className="flex flex-col gap-0.5 cursor-default"

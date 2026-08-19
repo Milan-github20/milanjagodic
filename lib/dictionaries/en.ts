@@ -86,6 +86,32 @@ export const en = {
     availability:
       "Open to full-time roles and selected freelance, remote from Bosnia and Herzegovina — now",
     location: "Bosnia and Herzegovina",
+    availableNow: "Available now — typically responds within 24h",
+    whatIOffer: "What I offer",
+    offerItems: [
+      "Full-stack web development",
+      "Product design & UX",
+      "From idea to production",
+      "Remote — Bosnia & Herzegovina",
+    ],
+    findMe: "Find me",
+    navigate: "Navigate",
+    heroStats: [
+      { value: "2", label: "Live Products" },
+      { value: "4+", label: "Years Coding" },
+      { value: "BiH", label: "Remote-ready" },
+    ],
+    heroAvailable: "Available",
+    marqueeItems: [
+      "Full-Stack Developer",
+      "React · Next.js · TypeScript",
+      "Bosnia & Herzegovina",
+      "Available for hire",
+      "Clean code. Real products.",
+      "Node.js · PostgreSQL · Supabase",
+      "Product-focused",
+      "Open to remote work",
+    ],
   },
   about: {
     kicker: "About",

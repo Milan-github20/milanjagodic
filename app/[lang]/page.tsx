@@ -30,6 +30,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         liveLabel={dict.hero.liveProduct}
         tennisMatchTitle={site.tennisMatch.title}
         tennisMatchSubtitle={dict.work.tennisMatch.subtitle}
+        availableLabel={dict.close.heroAvailable}
+        stats={[...dict.close.heroStats]}
       />
 
       {/* Work */}
@@ -126,13 +128,27 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </Container>
       </section>
 
-      <Marquee />
+      <Marquee items={[...dict.close.marqueeItems]} />
 
       {/* CTA */}
       <CtaSection
         location={dict.close.location}
         availability={dict.close.availability}
         email={site.email}
+        availableNow={dict.close.availableNow}
+        whatIOffer={dict.close.whatIOffer}
+        offerItems={[...dict.close.offerItems]}
+        findMe={dict.close.findMe}
+        navigate={dict.close.navigate}
+        socialLinks={[
+          { label: "GitHub", href: site.social.github },
+          { label: "LinkedIn", href: site.social.linkedin },
+        ]}
+        quickLinks={[
+          { label: dict.work.title, href: "#work" },
+          { label: dict.nav.about, href: "about" },
+          { label: dict.nav.cv, href: "cv" },
+        ]}
       />
     </>
   );

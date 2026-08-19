@@ -1,16 +1,4 @@
-const items = [
-  "Full-Stack Developer",
-  "React · Next.js · TypeScript",
-  "Bosnia & Herzegovina",
-  "Available for hire",
-  "Clean code. Real products.",
-  "Node.js · PostgreSQL · Prisma",
-  "Passionate about UX",
-  "Open to remote work",
-];
-
-export function Marquee() {
-  // Triple repeat so there's no gap during the CSS animation loop
+export function Marquee({ items }: { items: string[] }) {
   const repeated = [...items, ...items, ...items];
 
   return (

@@ -4,29 +4,31 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Container } from "./Container";
 import { Reveal } from "./Reveal";
-import { site } from "@/lib/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-
-const quickLinks = [
-  { label: "Selected work", href: "#work" },
-  { label: "About", href: "about" },
-  { label: "CV", href: "cv" },
-];
-
-const socialLinks = [
-  { label: "GitHub", href: site.social.github },
-  { label: "LinkedIn", href: site.social.linkedin },
-];
 
 export function CtaSection({
   location,
   availability,
   email,
+  availableNow,
+  whatIOffer,
+  offerItems,
+  findMe,
+  navigate,
+  socialLinks,
+  quickLinks,
 }: {
   location: string;
   availability: string;
   email: string;
+  availableNow: string;
+  whatIOffer: string;
+  offerItems: string[];
+  findMe: string;
+  navigate: string;
+  socialLinks: { label: string; href: string | null }[];
+  quickLinks: { label: string; href: string }[];
 }) {
   return (
     <section className="border-t border-line bg-surface overflow-hidden relative">
@@ -110,9 +112,7 @@ export function CtaSection({
                 animate={{ opacity: [1, 0.3, 1], scale: [1, 1.4, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
-              <span className="text-sm text-muted">
-                Available now — typically responds within 24h
-              </span>
+              <span className="text-sm text-muted">{availableNow}</span>
             </motion.div>
           </div>
 
@@ -122,15 +122,10 @@ export function CtaSection({
             {/* What I do */}
             <Reveal delay={0.1}>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent mb-4">
-                What I offer
+                {whatIOffer}
               </p>
               <ul className="flex flex-col gap-3">
-                {[
-                  "Full-stack web development",
-                  "Product design & UX",
-                  "From idea to production",
-                  "Remote — Bosnia & Herzegovina",
-                ].map((item, i) => (
+                {offerItems.map((item, i) => (
                   <motion.li
                     key={item}
                     className="flex items-center gap-3 text-sm text-muted"
@@ -149,7 +144,7 @@ export function CtaSection({
             {/* Social links */}
             <Reveal delay={0.2}>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent mb-4">
-                Find me
+                {findMe}
               </p>
               <div className="flex flex-col gap-2">
                 {socialLinks.filter(l => l.href).map((link, i) => (
@@ -176,7 +171,7 @@ export function CtaSection({
             {/* Quick nav */}
             <Reveal delay={0.28}>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent mb-4">
-                Navigate
+                {navigate}
               </p>
               <div className="flex flex-col gap-2">
                 {quickLinks.map((link, i) => (
