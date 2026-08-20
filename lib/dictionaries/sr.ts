@@ -231,8 +231,6 @@ export const sr = {
       prev: "Prethodni ekran",
       next: "Sljedeći ekran",
       zoomHint: "otvori veće",
-      maskNote:
-        "Imena i fotografije drugih igrača su zamućeni. Prikazani su samo podaci sa mog naloga.",
     },
   },
 } as const;
