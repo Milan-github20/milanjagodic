@@ -230,8 +230,6 @@ export const en = {
       prev: "Previous screen",
       next: "Next screen",
       zoomHint: "open larger",
-      maskNote:
-        "Other players' names and photos are blurred. Only my own account data is shown.",
     },
   },
 } as const;

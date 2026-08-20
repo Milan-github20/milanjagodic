@@ -4,7 +4,6 @@ import { site } from "@/lib/site";
 import type { Screenshot } from "@/lib/screenshots";
 import { DevicePreview } from "./DevicePreview";
 import { PhoneFrame } from "./PhoneFrame";
-import { motion } from "motion/react";
 
 type LiveProductCardProps = {
   title: string;
@@ -20,35 +19,18 @@ export function LiveProductCard({
   shots,
 }: LiveProductCardProps) {
   return (
-    <motion.a
+    <a
       href={site.tennisMatch.url}
       target="_blank"
       rel="noreferrer"
-      className="group block rounded-2xl border border-line bg-surface-raised p-6 sm:p-8"
-      whileHover={{
-        y: -6,
-        borderColor: "rgba(194,58,18,0.4)",
-        boxShadow: "0 20px 60px var(--glow)",
-      }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      className="group block rounded-2xl border border-line bg-surface-raised p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_20px_60px_var(--glow)] sm:p-8"
     >
       <p className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-accent">
-        <motion.span
-          className="size-2 rounded-full bg-accent"
-          animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          aria-hidden
-        />
+        <span className="size-2 rounded-full bg-accent" aria-hidden />
         {liveLabel}
       </p>
       {shots?.length ? (
-        <PhoneFrame
-          shots={shots}
-          autoplay
-          priority
-          interactive={false}
-          showDots={false}
-        />
+        <PhoneFrame shots={shots} autoplay priority showDots={false} />
       ) : (
         <DevicePreview variant="list" />
       )}
@@ -56,13 +38,9 @@ export function LiveProductCard({
         {title}
       </h2>
       <p className="mt-2 text-sm leading-6 text-muted">{subtitle}</p>
-      <motion.p
-        className="mt-4 text-sm font-medium text-accent"
-        whileHover={{ x: 4 }}
-        transition={{ duration: 0.2 }}
-      >
+      <p className="mt-4 text-sm font-medium text-accent transition-transform duration-200 group-hover:translate-x-1">
         tennismatch.ba →
-      </motion.p>
-    </motion.a>
+      </p>
+    </a>
   );
 }
