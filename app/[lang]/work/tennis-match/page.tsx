@@ -4,6 +4,7 @@ import { CaseStudyLayout } from "@/components/CaseStudyLayout";
 import { getTennisMatchCaseStudy } from "@/lib/case-studies";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { getTennisMatchShots } from "@/lib/screenshots";
 import { site } from "@/lib/site";
 
 export async function generateMetadata({
@@ -37,6 +38,7 @@ export default async function TennisMatchCaseStudyPage({
       dict={dict}
       content={content}
       variant="list"
+      shots={getTennisMatchShots(locale)}
     />
   );
 }

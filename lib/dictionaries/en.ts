@@ -224,5 +224,14 @@ export const en = {
     why: "Why",
     tennisCaption: "Vercel deploy · ELO on the server · demo users kept apart",
     preferitoCaption: "Vercel SPA · overlap blocked in the database",
+    screens: "Screens",
+    gallery: {
+      close: "Close",
+      prev: "Previous screen",
+      next: "Next screen",
+      zoomHint: "open larger",
+      maskNote:
+        "Other players' names and photos are blurred. Only my own account data is shown.",
+    },
   },
 } as const;

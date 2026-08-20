@@ -4,10 +4,9 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
-import { site } from "@/lib/site";
+import type { Screenshot } from "@/lib/screenshots";
 import { Container } from "./Container";
 import { LiveProductCard } from "./LiveProductCard";
-import { MagneticButton } from "./MagneticButton";
 
 type HeroSectionProps = {
   locale: Locale;
@@ -21,6 +20,7 @@ type HeroSectionProps = {
   tennisMatchSubtitle: string;
   availableLabel: string;
   stats: { value: string; label: string }[];
+  heroShots?: Screenshot[];
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -60,6 +60,7 @@ export function HeroSection({
   tennisMatchSubtitle,
   availableLabel,
   stats,
+  heroShots,
 }: HeroSectionProps) {
   return (
     <section className="hero-glow cinematic-grid relative overflow-hidden">
@@ -188,6 +189,7 @@ export function HeroSection({
             title={tennisMatchTitle}
             subtitle={tennisMatchSubtitle}
             liveLabel={liveLabel}
+            shots={heroShots}
           />
         </motion.div>
       </Container>

@@ -7,11 +7,13 @@ import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
 import type { CaseStudyContent } from "@/lib/case-studies";
 import type { Dictionary } from "@/lib/dictionaries";
+import type { Screenshot } from "@/lib/screenshots";
 import { site } from "@/lib/site";
 import { ArchitectureDiagram } from "./ArchitectureDiagram";
 import { Container } from "./Container";
 import { DevicePreview } from "./DevicePreview";
 import { Reveal } from "./Reveal";
+import { ScreenshotGallery } from "./ScreenshotGallery";
 import { SectionNumber } from "./SectionNumber";
 import { MagneticButton } from "./MagneticButton";
 
@@ -20,6 +22,7 @@ type CaseStudyLayoutProps = {
   dict: Dictionary;
   content: CaseStudyContent;
   variant: "list" | "calendar";
+  shots?: Screenshot[];
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -123,6 +126,7 @@ export function CaseStudyLayout({
   dict,
   content,
   variant,
+  shots,
 }: CaseStudyLayoutProps) {
   const cs = dict.caseStudy;
   const heroRef = useRef<HTMLElement>(null);
@@ -349,15 +353,26 @@ export function CaseStudyLayout({
               </motion.div>
             ))}
           </div>
-          <motion.div
-            className="mt-10 flex justify-center"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease }}
-          >
-            <DevicePreview variant={variant} />
-          </motion.div>
+          {shots?.length ? (
+            <div className="mt-12">
+              <Reveal>
+                <h3 className="font-display text-2xl text-ink">{cs.screens}</h3>
+              </Reveal>
+              <div className="mt-6">
+                <ScreenshotGallery shots={shots} labels={cs.gallery} />
+              </div>
+            </div>
+          ) : (
+            <motion.div
+              className="mt-10 flex justify-center"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease }}
+            >
+              <DevicePreview variant={variant} />
+            </motion.div>
+          )}
         </section>
 
         {/* Decisions */}

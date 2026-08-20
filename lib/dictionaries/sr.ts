@@ -225,5 +225,14 @@ export const sr = {
     tennisCaption:
       "Objavljeno na Vercelu · ELO na serveru · demo nalog odvojen od pravih igrača",
     preferitoCaption: "Vercel SPA · preklapanje blokira baza",
+    screens: "Ekrani",
+    gallery: {
+      close: "Zatvori",
+      prev: "Prethodni ekran",
+      next: "Sljedeći ekran",
+      zoomHint: "otvori veće",
+      maskNote:
+        "Imena i fotografije drugih igrača su zamućeni. Prikazani su samo podaci sa mog naloga.",
+    },
   },
 } as const;
