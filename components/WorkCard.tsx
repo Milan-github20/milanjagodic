@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useRef } from "react";
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
+import type { Screenshot } from "@/lib/screenshots";
 import { DevicePreview } from "./DevicePreview";
-import { MagneticButton } from "./MagneticButton";
+import { PhoneFrame } from "./PhoneFrame";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 type WorkCardProps = {
@@ -21,6 +22,7 @@ type WorkCardProps = {
   featured?: boolean;
   readLabel: string;
   liveLabel: string;
+  shot?: Screenshot;
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -38,6 +40,7 @@ export function WorkCard({
   featured = false,
   readLabel,
   liveLabel,
+  shot,
 }: WorkCardProps) {
   const ref = useRef<HTMLElement>(null);
   const rawX = useMotionValue(0);
@@ -89,7 +92,11 @@ export function WorkCard({
         transition={{ duration: 0.4, ease }}
         style={{ transformStyle: "preserve-3d", translateZ: 20 }}
       >
-        <DevicePreview variant={variant} />
+        {shot ? (
+          <PhoneFrame shots={shot} size="md" interactive={false} />
+        ) : (
+          <DevicePreview variant={variant} />
+        )}
       </motion.div>
 
       <div className="flex flex-col gap-5" style={{ transform: "translateZ(10px)" }}>

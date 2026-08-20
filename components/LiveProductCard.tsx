@@ -1,19 +1,23 @@
 "use client";
 
 import { site } from "@/lib/site";
+import type { Screenshot } from "@/lib/screenshots";
 import { DevicePreview } from "./DevicePreview";
+import { PhoneFrame } from "./PhoneFrame";
 import { motion } from "motion/react";
 
 type LiveProductCardProps = {
   title: string;
   subtitle: string;
   liveLabel: string;
+  shots?: Screenshot[];
 };
 
 export function LiveProductCard({
   title,
   subtitle,
   liveLabel,
+  shots,
 }: LiveProductCardProps) {
   return (
     <motion.a
@@ -37,7 +41,17 @@ export function LiveProductCard({
         />
         {liveLabel}
       </p>
-      <DevicePreview variant="list" />
+      {shots?.length ? (
+        <PhoneFrame
+          shots={shots}
+          autoplay
+          priority
+          interactive={false}
+          showDots={false}
+        />
+      ) : (
+        <DevicePreview variant="list" />
+      )}
       <h2 className="mt-6 font-display text-3xl tracking-tight text-ink">
         {title}
       </h2>

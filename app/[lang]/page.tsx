@@ -10,6 +10,7 @@ import { Marquee } from "@/components/Marquee";
 import { SectionNumber } from "@/components/SectionNumber";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { getFeaturedShot, getTennisMatchHeroShots } from "@/lib/screenshots";
 import { site } from "@/lib/site";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
@@ -32,6 +33,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         tennisMatchSubtitle={dict.work.tennisMatch.subtitle}
         availableLabel={dict.close.heroAvailable}
         stats={[...dict.close.heroStats]}
+        heroShots={getTennisMatchHeroShots(locale)}
       />
 
       {/* Work */}
@@ -58,6 +60,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 variant="list"
                 readLabel={dict.work.readCaseStudy}
                 liveLabel={dict.work.live}
+                shot={getFeaturedShot(locale)}
               />
             </Reveal>
             <Reveal delay={0.08}>
