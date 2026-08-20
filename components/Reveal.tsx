@@ -43,10 +43,10 @@ export function Reveal({
     return (
       <motion.div
         className={className}
-        initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
-        whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, scale: 0.96 }}
+        whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.7, delay, ease }}
+        transition={{ duration: 0.55, delay, ease }}
       >
         {children}
       </motion.div>
@@ -55,15 +55,15 @@ export function Reveal({
 
   const initial =
     direction === "left"
-      ? { opacity: 0, x: -30, filter: "blur(8px)" }
+      ? { opacity: 0, x: -20 }
       : direction === "right"
-        ? { opacity: 0, x: 30, filter: "blur(8px)" }
-        : { opacity: 0, y: 28, filter: "blur(6px)" };
+        ? { opacity: 0, x: 20 }
+        : { opacity: 0, y: 20 };
 
   const animate =
     direction === "left" || direction === "right"
-      ? { opacity: 1, x: 0, filter: "blur(0px)" }
-      : { opacity: 1, y: 0, filter: "blur(0px)" };
+      ? { opacity: 1, x: 0 }
+      : { opacity: 1, y: 0 };
 
   return (
     <motion.div
@@ -71,7 +71,7 @@ export function Reveal({
       initial={initial}
       whileInView={animate}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.65, delay, ease }}
+      transition={{ duration: 0.5, delay, ease }}
     >
       {children}
     </motion.div>

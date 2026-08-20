@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
-import { CursorGlow } from "@/components/CursorGlow";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -37,11 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col">
-        <CursorGlow />
-        <div className="grain-overlay" aria-hidden />
-        {children}
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }
