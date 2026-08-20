@@ -23,7 +23,7 @@ export function LiveProductCard({
       href={site.tennisMatch.url}
       target="_blank"
       rel="noreferrer"
-      className="group block rounded-2xl border border-line bg-surface-raised p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_20px_60px_var(--glow)] sm:p-8"
+      className="group block rounded-2xl border border-line bg-surface-raised p-6 transition-colors duration-200 hover:border-accent/40 sm:p-8"
     >
       <p className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-accent">
         <span className="size-2 rounded-full bg-accent" aria-hidden />

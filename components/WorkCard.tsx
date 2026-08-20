@@ -40,17 +40,15 @@ export function WorkCard({
 }: WorkCardProps) {
   return (
     <article
-      className={`group relative grid items-center gap-8 overflow-hidden rounded-2xl border border-line p-5 transition-[border-color,box-shadow] duration-300 hover:border-accent/35 hover:shadow-[0_24px_80px_rgba(194,58,18,0.14)] sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10 ${
+      className={`group relative grid items-center gap-8 overflow-hidden rounded-2xl border border-line p-5 transition-colors duration-200 hover:border-accent/40 sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10 ${
         featured ? "bg-surface-raised" : "bg-surface"
       }`}
     >
-      <div className="transition-transform duration-300 group-hover:scale-[1.02]">
-        {shot ? (
-          <PhoneFrame shots={shot} size="md" />
-        ) : (
-          <DevicePreview variant={variant} />
-        )}
-      </div>
+      {shot ? (
+        <PhoneFrame shots={shot} size="md" />
+      ) : (
+        <DevicePreview variant={variant} />
+      )}
 
       <div className="flex flex-col gap-5">
         <h3 className="font-display text-3xl tracking-tight text-ink sm:text-4xl lg:text-5xl">

@@ -54,7 +54,7 @@ export function PhoneFrame({
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative rounded-[1.75rem] border border-line bg-surface-raised p-2 shadow-[0_12px_40px_var(--glow)] transition-shadow duration-300 hover:shadow-[0_18px_56px_var(--glow)]">
+      <div className="relative rounded-[1.75rem] border border-line bg-surface-raised p-2 shadow-[0_12px_40px_var(--glow)]">
         <div className="mx-auto mb-2 h-1.5 w-14 rounded-full bg-ink/20" />
 
         <div
