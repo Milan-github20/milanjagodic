@@ -58,7 +58,7 @@ This is a calm product site, not a Dribbble shot and not an Awwwards demo.
 | Domain | None yet → Vercel URL for v1; personal domain later |
 | GitHub / LinkedIn | LinkedIn: https://www.linkedin.com/in/milan-jagodić-83b9ba204/ . GitHub profile: https://github.com/Milan-github20 . Tennis Match and Preferito source stay private. |
 | Photo / avatar | **PLACEHOLDER**; Milan will provide later |
-| CV | Draft page at `/cv` (EN + SR). Content lives in `lib/cv.ts` for Milan to edit. Print / Save as PDF for a 1-page A4. Role at Računari d.o.o. and Apeiron programme left blank until he fills them. |
+| CV | Draft page at `/cv` (EN + SR). Content lives in `lib/content/cv.ts` for Milan to edit. Print / Save as PDF for a 1-page A4. Role at Računari d.o.o. and Apeiron programme left blank until he fills them. |
 | Command palette | Yes in v1 (cmd+k): Work, About, Contact, Copy email |
 | Analytics | Plausible or Umami (non-invasive) |
 | Contact | Mailto + short working form (Resend or Formspark). No 12-field form. No Cal.com/Calendly in v1 |
@@ -552,7 +552,7 @@ Workspace today: Next.js 16 + React 19 + Tailwind 4 + TypeScript starter. Replac
 | GitHub URL | https://github.com/Milan-github20 — profile only. App source stays private. |
 | LinkedIn URL | https://www.linkedin.com/in/milan-jagodić-83b9ba204/ |
 | Photo | About/hero placeholder |
-| CV PDF | Page exists; Milan edits `lib/cv.ts` then prints A4. Optional exported PDF later |
+| CV PDF | Page exists; Milan edits `lib/content/cv.ts` then prints A4. Optional exported PDF later |
 | Tennis Match demo | **Live** — one-click on tennismatch.ba landing; no credentials in portfolio |
 | Preferito demo email/password | Same; **must not hit real calendar** |
 | Screenshot folder | Shot lists in §8.12; shoot after copy/design OK |

@@ -40,6 +40,6 @@ Copy into `.env.local` (do not commit secrets):
 | `/en/work/preferito` | Preferito case study |
 | `/en/about` | About |
 | `/en/contact` | Contact |
-| `/en/cv` | CV (print to A4 from `lib/cv.ts`) |
+| `/en/cv` | CV (print to A4 from `lib/content/cv.ts`) |
 
 `/bs` redirects to `/sr`. Command palette: `Ctrl+K` / `Cmd+K`.
