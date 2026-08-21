@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { CommandPalette } from "@/components/CommandPalette";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { ScrollToTop } from "@/components/ScrollToTop";
-import { SetHtmlLang } from "@/components/SetHtmlLang";
-import { getDictionary } from "@/lib/dictionaries";
+import { Footer, Header, ScrollToTop, SetHtmlLang, SiteAtmosphere } from "@/components/layout";
+import { CommandPalette } from "@/components/ui";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
-import { jsonLdPerson, site } from "@/lib/site";
+import { jsonLdPerson, site } from "@/lib/content/site";
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
@@ -62,6 +59,7 @@ export default async function LangLayout({
         {dict.nav.skip}
       </a>
       <ScrollToTop />
+      <SiteAtmosphere />
       <Header locale={lang as Locale} dict={dict} />
       <main id="content" className="flex-1">
         {children}

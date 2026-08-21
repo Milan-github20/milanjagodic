@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContactPageContent } from "@/components/ContactForm";
-import { getDictionary } from "@/lib/dictionaries";
+import { ContactPageContent } from "@/components/contact";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale } from "@/lib/i18n";
 
 export async function generateMetadata({

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CaseStudyLayout } from "@/components/CaseStudyLayout";
-import { getTennisMatchCaseStudy } from "@/lib/case-studies";
-import { getDictionary } from "@/lib/dictionaries";
+import { CaseStudyLayout } from "@/components/work";
+import { getTennisMatchCaseStudy } from "@/lib/content/case-studies";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
-import { getTennisMatchShots } from "@/lib/screenshots";
-import { site } from "@/lib/site";
+import { getTennisMatchDesktopShot, getTennisMatchShots } from "@/lib/content/screenshots";
+import { site } from "@/lib/content/site";
 
 export async function generateMetadata({
   params,
@@ -39,6 +39,7 @@ export default async function TennisMatchCaseStudyPage({
       content={content}
       variant="list"
       shots={getTennisMatchShots(locale)}
+      desktopShot={getTennisMatchDesktopShot(locale)}
     />
   );
 }

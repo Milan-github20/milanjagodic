@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CaseStudyLayout } from "@/components/CaseStudyLayout";
-import { getPreferitoCaseStudy } from "@/lib/case-studies";
-import { getDictionary } from "@/lib/dictionaries";
+import { CaseStudyLayout } from "@/components/work";
+import { getPreferitoCaseStudy } from "@/lib/content/case-studies";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
-import { site } from "@/lib/site";
+import { site } from "@/lib/content/site";
 
 export async function generateMetadata({
   params,
