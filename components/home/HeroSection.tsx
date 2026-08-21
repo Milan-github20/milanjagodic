@@ -81,17 +81,17 @@ export function HeroSection({
 
       <Container
         wide
-        className="relative grid items-start gap-10 py-10 pb-8 sm:gap-12 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,1fr)] lg:gap-14 lg:py-28 xl:gap-16"
+        className="relative grid items-start gap-10 py-12 pb-10 sm:gap-12 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,1fr)] lg:gap-14 lg:py-28 xl:gap-16"
       >
         <div className="min-w-0 lg:pr-2">
           {/* Kicker badge */}
           <motion.div
-            className="flex flex-wrap items-center gap-2.5 sm:gap-3"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 sm:justify-start sm:gap-3"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease }}
           >
-            <p className="text-[10px] font-medium uppercase leading-tight tracking-[0.16em] text-ink/70 sm:text-[11px] sm:tracking-[0.18em] sm:text-muted">
+            <p className="text-center text-[10px] font-medium uppercase leading-relaxed tracking-[0.16em] text-ink/70 sm:text-left sm:text-[11px] sm:tracking-[0.18em] sm:text-muted">
               {kicker}
             </p>
             <motion.span
@@ -110,18 +110,18 @@ export function HeroSection({
           </motion.div>
 
           {/* Name */}
-          <h1 className="mt-5 font-display text-[2.55rem] leading-[0.95] tracking-tight text-ink sm:mt-7 sm:text-7xl lg:text-[5.75rem] xl:text-[6.5rem]">
-            <span className="block">
+          <h1 className="mt-7 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 font-display text-[3.15rem] leading-[1.05] tracking-[-0.02em] text-ink sm:mt-9 sm:justify-start sm:gap-x-4 sm:text-7xl lg:text-[5.75rem] xl:text-[6.5rem]">
+            <span className="inline-block">
               <SplitChars text="Milan" delay={0.12} />
             </span>
-            <span className="block italic text-accent">
+            <span className="inline-block italic text-accent">
               <SplitChars text="Jagodić" delay={0.28} />
             </span>
           </h1>
 
           {/* Description */}
           <motion.p
-            className="mt-6 max-w-lg text-[0.95rem] leading-7 text-ink/75 sm:mt-8 sm:text-lg sm:leading-8 sm:text-muted lg:text-xl lg:leading-9"
+            className="mx-auto mt-7 max-w-lg text-center text-[0.98rem] leading-8 text-ink/75 sm:mx-0 sm:mt-9 sm:text-left sm:text-lg sm:leading-8 sm:text-muted lg:text-xl lg:leading-9"
             initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.7, delay: 0.55, ease }}
@@ -130,7 +130,7 @@ export function HeroSection({
           </motion.p>
 
           <motion.p
-            className="mt-3 text-xs text-ink/60 sm:text-sm sm:text-muted/80"
+            className="mx-auto mt-4 max-w-md text-center text-xs leading-5 text-ink/60 sm:mx-0 sm:text-left sm:text-sm sm:text-muted/80"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.68 }}
@@ -140,28 +140,28 @@ export function HeroSection({
 
           {/* CTA buttons */}
           <motion.div
-            className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center"
+            className="mt-9 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.75, ease }}
           >
             <Link
               href={localePath(locale, "#work")}
-              className="inline-flex h-11 w-full items-center justify-center whitespace-nowrap bg-accent px-5 text-xs font-medium uppercase tracking-[0.12em] text-canvas transition-all duration-200 hover:bg-ink active:scale-[0.98] sm:h-12 sm:w-auto sm:px-7 sm:text-sm"
+              className="inline-flex h-12 w-full items-center justify-center whitespace-nowrap bg-accent px-5 text-xs font-medium uppercase tracking-[0.12em] text-canvas transition-all duration-200 hover:bg-ink active:scale-[0.98] sm:h-12 sm:w-auto sm:px-7 sm:text-sm"
             >
               {seeWork}
             </Link>
             <Link
               href={localePath(locale, "contact")}
-              className="inline-flex h-11 w-full items-center justify-center whitespace-nowrap border border-line bg-canvas/50 px-5 text-xs font-medium uppercase tracking-[0.12em] text-ink transition-all duration-200 hover:border-accent hover:text-accent active:scale-[0.98] sm:h-12 sm:w-auto sm:bg-transparent sm:px-7 sm:text-sm"
+              className="inline-flex h-12 w-full items-center justify-center whitespace-nowrap border border-line bg-canvas/50 px-5 text-xs font-medium uppercase tracking-[0.12em] text-ink transition-all duration-200 hover:border-accent hover:text-accent active:scale-[0.98] sm:h-12 sm:w-auto sm:bg-transparent sm:px-7 sm:text-sm"
             >
               {getInTouch}
             </Link>
           </motion.div>
 
-          {/* Stats row */}
+          {/* Stats — centered on mobile, airy grid */}
           <motion.div
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line/80 pt-6 sm:mt-10 sm:gap-x-12 sm:pt-8"
+            className="mx-auto mt-11 grid w-full max-w-sm grid-cols-2 gap-6 border-t border-line/80 pt-8 sm:mx-0 sm:mt-12 sm:max-w-lg sm:gap-10 sm:pt-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
@@ -169,15 +169,15 @@ export function HeroSection({
             {stats.map(({ value, label }, i) => (
               <motion.div
                 key={label}
-                className="flex items-baseline gap-2 cursor-default sm:gap-3"
+                className="flex flex-col items-center gap-1.5 text-center cursor-default sm:items-start sm:text-left"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.9 + i * 0.08, ease }}
               >
-                <span className="font-display text-2xl text-ink sm:text-3xl">
+                <span className="font-display text-3xl leading-none text-ink sm:text-4xl">
                   {value}
                 </span>
-                <span className="max-w-[7.5rem] text-[10px] uppercase leading-snug tracking-[0.1em] text-muted sm:max-w-none sm:text-xs sm:tracking-[0.12em]">
+                <span className="max-w-[9rem] text-[10px] uppercase leading-snug tracking-[0.12em] text-muted sm:max-w-[11rem] sm:text-[11px]">
                   {label}
                 </span>
               </motion.div>
