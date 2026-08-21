@@ -1,23 +1,19 @@
 import { notFound } from "next/navigation";
-import { Container } from "@/components/Container";
-import { Reveal } from "@/components/Reveal";
-import { WorkCard } from "@/components/WorkCard";
-import { HeroSection } from "@/components/HeroSection";
-import { ProcessCard } from "@/components/ProcessCard";
-import { StackCard } from "@/components/StackCard";
-import { CtaSection } from "@/components/CtaSection";
-import { Marquee } from "@/components/Marquee";
-import { SectionNumber } from "@/components/SectionNumber";
-import { getDictionary } from "@/lib/dictionaries";
+import { CtaSection, HeroSection, Marquee, ProcessCard, StackCard, WorkCard } from "@/components/home";
+import { Container } from "@/components/layout";
+import { Reveal, SectionNumber } from "@/components/ui";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
-import { getFeaturedShot, getTennisMatchHeroShots } from "@/lib/screenshots";
-import { site } from "@/lib/site";
+import { getFeaturedShots, getTennisMatchHeroShots } from "@/lib/content/screenshots";
+import { site } from "@/lib/content/site";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const locale = lang as Locale;
   const dict = getDictionary(locale);
+  const landingShots = getTennisMatchHeroShots(locale);
+  const featuredShots = getFeaturedShots(locale);
 
   return (
     <>
@@ -33,7 +29,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         tennisMatchSubtitle={dict.work.tennisMatch.subtitle}
         availableLabel={dict.close.heroAvailable}
         stats={[...dict.close.heroStats]}
-        heroShots={getTennisMatchHeroShots(locale)}
+        heroShots={landingShots}
       />
 
       {/* Work */}
@@ -60,7 +56,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 variant="list"
                 readLabel={dict.work.readCaseStudy}
                 liveLabel={dict.work.live}
-                shot={getFeaturedShot(locale)}
+                desktopShot={featuredShots.desktop}
+                shot={featuredShots.mobile}
               />
             </Reveal>
             <Reveal delay={0.08}>
@@ -94,9 +91,10 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {dict.process.steps.map((item, index) => (
               <ProcessCard
-                key={item}
+                key={item.title}
                 number={String(index + 1).padStart(2, "0")}
-                text={item}
+                title={item.title}
+                description={item.description}
                 delay={index * 0.09}
               />
             ))}

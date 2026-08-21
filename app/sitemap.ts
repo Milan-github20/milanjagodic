@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
-import { site } from "@/lib/site";
+import { site } from "@/lib/content/site";
 
 const base = site.url.replace(/\/$/, "");
 

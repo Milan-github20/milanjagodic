@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Container } from "@/components/Container";
-import { getDictionary } from "@/lib/dictionaries";
+import { Container } from "@/components/layout";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { defaultLocale, isLocale, localePath } from "@/lib/i18n";
 
 export default function NotFound() {

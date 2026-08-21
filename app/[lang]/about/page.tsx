@@ -4,12 +4,11 @@ import { use } from "react";
 import { notFound } from "next/navigation";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { Container } from "@/components/Container";
-import { Reveal } from "@/components/Reveal";
-import { SectionNumber } from "@/components/SectionNumber";
-import { getDictionary } from "@/lib/dictionaries";
+import { Container } from "@/components/layout";
+import { Reveal, SectionNumber } from "@/components/ui";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
-import { site } from "@/lib/site";
+import { site } from "@/lib/content/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -67,12 +66,12 @@ export default function AboutPage({ params }: { params: Promise<{ lang: string }
               </span>
             </motion.div>
 
-            <h1 className="mt-5 font-display text-4xl tracking-tight text-ink sm:text-6xl lg:text-8xl">
+            <h1 className="mt-5 font-display text-[2.35rem] tracking-tight text-ink sm:text-6xl lg:text-8xl">
               <SplitChars text={site.name} delay={0.08} />
             </h1>
 
             <motion.p
-              className="mt-6 max-w-xl text-lg leading-8 text-muted"
+              className="mt-5 max-w-xl text-base leading-7 text-muted sm:mt-6 sm:text-lg sm:leading-8"
               initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6, delay: 0.45, ease }}

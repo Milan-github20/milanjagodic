@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CvDocument } from "@/components/CvDocument";
-import { PrintableCv } from "@/components/PrintableCv";
-import { PrintCvButton } from "@/components/PrintCvButton";
-import { getCv } from "@/lib/cv";
-import { getDictionary } from "@/lib/dictionaries";
+import { CvDocument, PrintableCv, PrintCvButton } from "@/components/cv";
+import { getCv } from "@/lib/content/cv";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
